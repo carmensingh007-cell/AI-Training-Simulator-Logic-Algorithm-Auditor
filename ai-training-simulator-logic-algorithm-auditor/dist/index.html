@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>AI Training Simulator: Logic &amp; Algorithm Auditor</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="app-container">
+  <header>
+    <div class="logo">
+      <span class="icon">⚡</span>
+      <h1>Logic Auditor <span class="badge">AI Training Sim</span></h1>
+    </div>
+    <div class="stats">
+      <div class="stat-box">
+        <span class="label">Scenario</span>
+        <span id="counter" class="value">1 / 20</span>
+      </div>
+      <div class="stat-box">
+        <span class="label">Skill Check</span>
+        <span id="topic-badge" class="value tag">Algorithm</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="pane left-pane">
+      <div class="pane-header">
+        <h2>Input Context</h2>
+      </div>
+      <div class="content-box">
+        <h3>User Prompt:</h3>
+        <p id="prompt-text">Loading...</p>
+        
+        <div class="divider"></div>
+        
+        <h3>AI Generated Code (v1.0):</h3>
+        <pre><code id="bad-code" class="language-javascript">Loading...</code></pre>
+      </div>
+      
+      <div class="controls">
+        <button id="btn-audit" class="btn primary">Run Logic Audit ➜</button>
+      </div>
+    </section>
+
+    <section class="pane right-pane" id="solution-pane">
+      <div class="pane-header">
+        <h2>Senior Evaluation</h2>
+      </div>
+      <div class="content-box result-box" id="result-content">
+        <div class="empty-state">
+          <p>Waiting for audit...</p>
+          <div class="loader"></div>
+        </div>
+        
+        <div id="audit-report" class="hidden">
+          <div class="critique-card">
+            <h4>🔴 Critical Issue Detected</h4>
+            <p id="critique-text"></p>
+          </div>
+
+          <div class="fix-card">
+            <h4>✨ Optimized Solution</h4>
+            <pre><code id="good-code" class="language-javascript"></code></pre>
+            <div class="explanation">
+              <strong>Why this is better:</strong>
+              <p id="reasoning-text"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="controls hidden" id="nav-controls">
+        <button id="btn-next" class="btn secondary">Next Scenario</button>
+      </div>
+    </section>
+  </main>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
