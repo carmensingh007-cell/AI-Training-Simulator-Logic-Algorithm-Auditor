@@ -1,0 +1,159 @@
+:root {
+  --primary: #2563eb;       /* Royal Blue */
+  --secondary: #7c3aed;     /* Deep Purple */
+  --bg-color: #ffffff;
+  --text-main: #1e293b;
+  --text-sub: #64748b;
+  --code-bg: #f1f5f9;
+  --card-border: #e2e8f0;
+  --success-bg: #dcfce7;
+  --success-text: #166534;
+  --danger-bg: #fee2e2;
+  --danger-text: #991b1b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Inter, system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--card-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+}
+
+.logo h1 { font-size: 1.25rem; font-weight: 700; color: var(--primary); }
+.badge { 
+  background: var(--secondary); color: white; 
+  font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; 
+  vertical-align: middle; margin-left: 8px;
+}
+
+.stats { display: flex; gap: 1.5rem; }
+.stat-box { text-align: right; }
+.stat-box .label { display: block; font-size: 0.7rem; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.5px; }
+.stat-box .value { font-weight: 600; font-size: 0.9rem; }
+.tag { color: var(--secondary); }
+
+/* Layout */
+main {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap; /* Responsive wrapping */
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
+.pane {
+  flex: 1;
+  min-width: 350px; /* Collapse to stack on mobile */
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-right: 1px solid var(--card-border);
+}
+
+.left-pane { background: white; }
+.right-pane { background: #fafafa; }
+
+.pane-header h2 {
+  font-size: 1rem;
+  color: var(--text-sub);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--primary);
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+/* Content Boxes */
+.content-box { flex: 1; overflow-y: auto; padding-right: 10px; }
+
+h3 { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-main); }
+p { font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin-bottom: 1rem; }
+
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  overflow-x: auto;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.85rem;
+  color: #334155;
+  margin-bottom: 1.5rem;
+}
+
+.divider { height: 1px; background: var(--card-border); margin: 1.5rem 0; }
+
+/* Buttons */
+.controls { margin-top: 1rem; }
+.btn {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.btn:active { transform: scale(0.98); }
+
+.primary { background: var(--primary); color: white; }
+.secondary { background: white; border: 2px solid var(--secondary); color: var(--secondary); }
+.primary:hover { background: #1d4ed8; }
+.secondary:hover { background: #f3e8ff; }
+
+/* Results & Feedback */
+.critique-card {
+  background: var(--danger-bg);
+  border-left: 4px solid var(--danger-text);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+.critique-card h4 { color: var(--danger-text); margin-bottom: 0.5rem; font-size: 0.9rem; }
+
+.fix-card {
+  background: white;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+.fix-card h4 { color: var(--success-text); margin-bottom: 0.5rem; font-size: 0.9rem; }
+.fix-card pre { background: var(--success-bg); color: #064e3b; border: none; }
+
+.explanation { margin-top: 1rem; font-size: 0.9rem; }
+
+.hidden { display: none !important; }
+
+/* Loader Animation */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-sub);
+  opacity: 0.5;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  main { height: auto; flex-direction: column; }
+  .pane { height: auto; border-right: none; border-bottom: 1px solid var(--card-border); }
+  body { overflow-y: auto; }
+}
