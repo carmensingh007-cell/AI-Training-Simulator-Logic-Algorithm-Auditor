@@ -1,6 +1,6 @@
 # ⚡ AI Training Simulator: Logic Auditor & Code Evaluator
 
-[![Live Demo](https://codepen.io/Carmen-Singh/pen/KwMQzwj)
+
 
 ## 📋 Project Overview
 
